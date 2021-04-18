@@ -1,1 +1,5 @@
 image: docker.pkg.github.com/panix-os/panix/panixbuild:3.0.0
+
+aliases:
+    build: make -j8
+    clean: make clean
