@@ -24,3 +24,7 @@ extern "C" void __stack_chk_fail(void)
 {
     PANIC("Smashed stack detected.");
 }
+
+// Initial stack provided to bootloader
+__attribute__((section(".bss"), used))
+uint8_t px_boot_stack[4096];

@@ -12,6 +12,8 @@
 #include <arch/arch.hpp>
 #include <dev/tty/tty.hpp>
 
+// Default ELF entry point
+extern "C" void _start();
 // Provide a function prototype to make the compiler warnings happy. Don't
 // want to make it public though, so we won't put it in the panic header.
 extern "C" void early_panic(const char *str);
@@ -48,3 +50,13 @@ early_panic(const char *str) {
     }
 }
 
+/**
+ * @brief Default ELF entry point. This should literally never be called
+ * unless the kernel is run as a normal application, which shouldn't even
+ * work in the first place. Maybe in the future we'll do something special
+ * with _start, but for now it panics.
+ *
+ */
+extern "C" void _start() {
+    early_panic("Kernel requires a bootloader!");
+}

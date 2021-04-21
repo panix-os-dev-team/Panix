@@ -178,8 +178,8 @@ void px_parse_stivale2(BootInfo* handle, void *info)
     while (tag)
     {
         // Map in each tag since Stivale2 doesn't give us a total size like Multiboot does.
-        uintptr_t page = ((uintptr_t)tag & PAGE_ALIGN);
-        px_map_kernel_page(VADDR(page), page);
+        // uintptr_t page = ((uintptr_t)tag & PAGE_ALIGN);
+        // px_map_kernel_page(VADDR(page), page);
         // Follows the tag list order in stivale2.h
         switch(tag->identifier)
         {

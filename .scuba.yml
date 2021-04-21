@@ -5,6 +5,5 @@ aliases:
     clean: make clean
     debug: make -j8 debug
     release: make -j8 release
-    image: make -j8 dist
     img: make -j8 dist IMGTYPE=img
     iso: make -j8 dist IMGTYPE=iso
